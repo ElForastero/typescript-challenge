@@ -24,9 +24,12 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Last<T extends any[]> = T extends [...args: any, last: infer U]
-  ? U
-  : never;
+// Naive solution
+// type Last<T extends any[]> = T extends [...args: any, last: infer U]
+//   ? U
+//   : never;
+
+type Last<T extends any[]> = T extends [...infer _, infer L] ? L : never;
 
 /* _____________ Test Cases _____________ */
 import { Equal, Expect } from '@type-challenges/utils';
